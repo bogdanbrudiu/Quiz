@@ -1,0 +1,44 @@
+﻿@model QuizWeb.Models.Question
+
+@{
+    ViewBag.Title = Resource.Delete;
+}
+
+<h2>@Resource.Delete</h2>
+<p class="error">@ViewBag.ErrorMessage</p>
+<h3>@Resource.DeleteMessage</h3>
+<fieldset>
+    <legend>@Resource.Question</legend>
+
+    <div class="display-label">@Html.LabelFor(m => m.QuestionCategories)</div>
+    <div class="display-field">
+           @foreach (var category in Model.QuestionCategories)
+           { 
+            @Html.DisplayFor(modelItem => category.Name)
+            <br />
+           } 
+    </div>
+
+     <div class="display-label">@Html.LabelFor(m => m.Description)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.Description)
+    </div>
+  
+       <div class="display-label">@Html.LabelFor(m => m.Details)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.Details)
+    </div>
+  
+
+</fieldset>
+@using (Html.BeginForm())
+{
+    <p>
+           @Html.HiddenFor(m => m.ID)
+   
+   
+
+        <input type="submit" value="@Resource.Delete" /> |
+        @Html.ActionLink(Resource.BackToList, "Index", new { sortOrder = ViewBag.SortOrder, currentFilter = ViewBag.CurrentFilter, page = ViewBag.Page })
+    </p>
+}

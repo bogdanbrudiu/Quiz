@@ -1,0 +1,38 @@
+﻿    @model QuizWeb.Models.Test
+
+@{
+    ViewBag.Title = Resource.TestResults;
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<h2>@Resource.TestResults</h2>
+
+<table>
+<tr>
+   
+    <th>
+        @Resource.QuestionDescription
+    </th>
+     <th>
+        @Resource.AnswerDescription
+    </th>
+    
+</tr>
+
+@foreach (var item in Model.TestDetails)
+{
+    <tr>
+
+
+    
+         <td>
+            @Html.DisplayFor(modelItem => item.QuestionDescription)
+        </td>
+        <td>
+              @Html.Raw(string.Join("<br/>", (item.Responses.ToList())))
+        </td>
+       
+    </tr>
+}
+
+</table>

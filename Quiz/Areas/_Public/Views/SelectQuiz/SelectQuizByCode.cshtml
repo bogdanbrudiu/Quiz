@@ -1,0 +1,16 @@
+﻿@model PagedList.IPagedList<QuizWeb.Models.Quiz>
+
+@{
+    ViewBag.Title = Resource.Quizzes;
+}
+
+<h2>@Resource.Quizzes</h2>
+
+
+@using (Html.BeginForm())
+{
+    <p>
+        @Resource.SearchByCode: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string) &nbsp;
+        <input type="submit" value="@Resource.Search" /></p>
+}
+

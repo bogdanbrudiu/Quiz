@@ -1,0 +1,43 @@
+﻿  @{ Html.EnableClientValidation(); }
+  @model QuizWeb.Models.Test
+  
+
+
+  
+      <div class="display-label">@Html.LabelFor(m => m.FirstName)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.FirstName)
+        @Html.ValidationMessageFor(model => model.FirstName)
+    </div>
+
+      <div class="display-label">@Html.LabelFor(m => m.LastName)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.LastName)
+        @Html.ValidationMessageFor(model => model.LastName)
+    </div>
+
+    <div class="display-label">@Html.LabelFor(m => m.AnStudiu)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.AnStudiu)
+        @Html.ValidationMessageFor(model => model.AnStudiu)
+    </div>
+
+    <div class="display-label">@Html.LabelFor(m => m.Grupa)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.Grupa)
+        @Html.ValidationMessageFor(model => model.Grupa)
+    </div>
+
+    <div class="display-label">@Html.LabelFor(m => m.NrMatricol)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.NrMatricol)
+        @Html.ValidationMessageFor(model => model.NrMatricol)
+    </div>
+
+@if(Model.ID==0){
+     <div class="display-label">@Html.LabelFor(m => m.Quiz)</div>
+    <div class="display-field">
+         @Html.DropDownList("QuizID", String.Empty)
+        @Html.ValidationMessageFor(model => model.QuizID)
+    </div>
+    }

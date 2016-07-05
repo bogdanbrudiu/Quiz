@@ -1,0 +1,33 @@
+﻿    @model QuizWeb.Models.Test
+@{
+    ViewBag.Title = Resource.ContinueTest;
+}
+
+<h2>@Resource.ContinueTest</h2>
+
+
+@using (Html.BeginForm()) {
+
+  @Html.ValidationSummary(false)
+   
+    
+    <fieldset>
+
+     <legend>@Resource.Test</legend>
+  @{ Html.EnableClientValidation(); }
+
+  
+
+  
+      <div class="display-label">@Html.LabelFor(m => m.ID)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.ID)
+        @Html.ValidationMessageFor(model => model.ID)
+    </div>
+
+
+        <p>
+            <input type="submit" value="@Resource.Create" />
+        </p>
+    </fieldset>
+}

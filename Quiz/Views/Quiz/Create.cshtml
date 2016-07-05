@@ -1,0 +1,27 @@
+﻿@model QuizWeb.Models.Quiz
+
+@{
+    ViewBag.Title = Resource.CreateNew;
+}
+
+<h2>@Resource.CreateNew</h2>
+
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(false)
+    <fieldset>
+
+     <legend>@Resource.Quiz</legend>
+  
+  @Html.Partial("_Fields")
+
+
+        <p>
+            <input type="submit" value="@Resource.Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink(Resource.BackToList, "Index")
+</div>

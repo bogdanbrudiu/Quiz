@@ -1,0 +1,20 @@
+﻿  @{ Html.EnableClientValidation(); }
+  @model QuizWeb.Models.Answer
+  
+ 
+  @Html.HiddenFor(m => m.QuestionID)
+
+
+    <div class="display-label">@Html.LabelFor(m => m.Description)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.Description)
+        @Html.ValidationMessageFor(model => model.Description)
+    </div>
+
+  
+
+    <div class="display-label">@Html.LabelFor(m => m.IsAnswer)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.IsAnswer)
+        @Html.ValidationMessageFor(model => model.IsAnswer)
+    </div>

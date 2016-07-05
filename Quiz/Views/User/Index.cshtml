@@ -1,0 +1,92 @@
+﻿@model PagedList.IPagedList<QuizWeb.Models.User>
+
+@{
+    ViewBag.Title = Resource.Users;
+}
+
+<h2>@Resource.Users</h2>
+
+<p>
+    @Html.ActionLink(Resource.CreateNew, "Create")
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        @Resource.SearchByName: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string) &nbsp;
+        <input type="submit" value="@Resource.Search" /></p>
+}
+
+<table>
+<tr>
+    <th></th>
+    <th>
+        @Html.ActionLink(Resource.UserLogin, "Index", new { sortOrder = ViewBag.NameSortParm, currentFilter = ViewBag.CurrentFilter })
+    </th>
+     <th>
+        @Resource.FirstName
+    </th>
+     <th>
+        @Resource.LastName
+    </th>
+     <th>
+        @Resource.IsAdmin
+    </th>
+</tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>
+            @Html.ActionLink(Resource.Edit, "Edit", new { id = item.ID, currentFilter = ViewBag.CurrentFilter, sortOrder = ViewBag.CurrentSort, page = Model.PageNumber }, new { @class = "buton-editeaza", @title = @Resource.Edit }) 
+            @Html.ActionLink(Resource.Delete, "Delete", new { id = item.ID, currentFilter = ViewBag.CurrentFilter, sortOrder = ViewBag.CurrentSort, page = Model.PageNumber }, new { @class = "buton-sterge", @title = @Resource.Delete }) 
+            @Html.ActionLink(Resource.Details, "Details", new { id = item.ID, currentFilter = ViewBag.CurrentFilter, sortOrder = ViewBag.CurrentSort, page = Model.PageNumber }, new { @class = "buton-detalii", @title = @Resource.Details }) 
+
+        </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.Login)
+        </td>
+           <td>
+            @Html.DisplayFor(modelItem => item.FirstName)
+        </td>
+           <td>
+            @Html.DisplayFor(modelItem => item.LastName)
+        </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.IsAdmin)
+        </td>
+       
+    </tr>
+}
+
+</table>
+
+<div class="navi-bar">
+    @Resource.Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+    @Resource.of @Model.PageCount
+    &nbsp;
+    @if (Model.HasPreviousPage)
+    {
+        @Html.ActionLink(Resource.FirstPage, "Index", new { page = 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+        @Html.Raw("&nbsp;");
+        @Html.ActionLink(Resource.Prev, "Index", new { page = Model.PageNumber - 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+    }
+    else
+    {
+        @Resource.FirstPage
+        @Html.Raw("&nbsp;");
+        @Resource.Prev
+    }
+    &nbsp;
+    @if (Model.HasNextPage)
+    {
+        @Html.ActionLink(Resource.Next, "Index", new { page = Model.PageNumber + 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+        @Html.Raw("&nbsp;");
+        @Html.ActionLink(Resource.LastPage, "Index", new { page = Model.PageCount, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+    }
+    else
+    {
+        @Resource.Next
+        @Html.Raw("&nbsp;")
+        @Resource.LastPage
+    }
+</div>

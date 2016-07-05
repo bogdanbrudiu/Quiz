@@ -1,0 +1,36 @@
+﻿    @model QuizWeb.Models.Test
+
+@{
+    ViewBag.Title = Resource.TestDone;
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<h2>@Resource.TestDone</h2>
+@using (Html.BeginForm())
+{
+
+  @Html.ValidationSummary(false)
+   
+    
+    <fieldset>
+
+     <legend>@Resource.Test</legend>
+  @{ Html.EnableClientValidation(); }
+  
+  <input type="hidden" name="ID" value="@Model.ID" />
+
+
+      @Html.HiddenFor(m => m.ID)
+  
+  
+
+        <p>
+            <input type="submit" value="@Resource.TestDone" />
+        </p>
+    </fieldset>
+}
+
+@if (Model.Quiz.AllowNavigate)
+{   
+        @Html.ActionLink(Resource.BackAnswerQuestion, "AnswerQuestion", new { id = Model.ID, position = ViewBag.Position - 1 }) 
+}

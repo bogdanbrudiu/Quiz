@@ -1,0 +1,35 @@
+@model QuizWeb.ViewModels.LogOnModel
+
+@{
+    ViewBag.Title = Resource.Login;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using (Html.BeginForm())
+{ 
+     <fieldset>
+
+     <legend>@Resource.Login</legend>
+ <div class="display-label">@Html.LabelFor(m => m.UserName)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.UserName)
+        @Html.ValidationMessageFor(model => model.UserName)
+    </div>
+
+     <div class="display-label">@Html.LabelFor(m => m.Password)</div>
+    <div class="display-field">
+        @Html.PasswordFor(m => m.Password)
+        @Html.ValidationMessageFor(model => model.Password)
+    </div>
+
+     <div class="display-label">@Html.LabelFor(m => m.RememberMe)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.RememberMe)
+        @Html.ValidationMessageFor(model => model.RememberMe)
+    </div>
+
+    
+      <p>
+            <input type="submit" class="buton-login" value="@Resource.Login" />
+        </p>
+            </fieldset>
+}

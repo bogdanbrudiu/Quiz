@@ -1,0 +1,60 @@
+﻿    @model QuizWeb.Models.Test
+
+@{
+    ViewBag.Title = Resource.TakeQuiz;
+}
+
+<h2>@Resource.TakeQuiz</h2>
+
+
+@using (Html.BeginForm()) {
+
+  @Html.ValidationSummary(false)
+   
+    
+    <fieldset>
+
+     <legend>@Resource.Test</legend>
+  @{ Html.EnableClientValidation(); }
+
+  
+
+    @Html.HiddenFor(m => m.QuizID)
+  
+      <div class="display-label">@Html.LabelFor(m => m.FirstName)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.FirstName)
+        @Html.ValidationMessageFor(model => model.FirstName)
+    </div>
+
+      <div class="display-label">@Html.LabelFor(m => m.LastName)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.LastName)
+        @Html.ValidationMessageFor(model => model.LastName)
+    </div>
+
+        <div class="display-label">@Html.LabelFor(m => m.AnStudiu)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.AnStudiu)
+        @Html.ValidationMessageFor(model => model.AnStudiu)
+    </div>
+
+        <div class="display-label">@Html.LabelFor(m => m.Grupa)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.Grupa)
+        @Html.ValidationMessageFor(model => model.Grupa)
+    </div>
+
+        <div class="display-label">@Html.LabelFor(m => m.NrMatricol)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.NrMatricol)
+        @Html.ValidationMessageFor(model => model.NrMatricol)
+    </div>
+
+        <p>
+            <input type="submit" value="@Resource.TakeQuiz" />
+        </p>
+    </fieldset>
+}
+
+

@@ -1,0 +1,54 @@
+﻿  @{ Html.EnableClientValidation(); }
+  @model QuizWeb.Models.Question
+
+  <div id="tree">
+     <table id="tabletree">
+    @foreach (QuizWeb.Models.QuestionCategory questionCategory in ViewBag.QuestionCategories)
+    {
+        var parent=questionCategory.ParentCategoryID.HasValue ? "data-tt-parent-id=\""+questionCategory.ParentCategoryID+"\"" : "";
+        var qcid="qc"+questionCategory.ID;
+    <tr class="folder" data-tt-id="@questionCategory.ID" @Html.Raw(parent)>
+        <td>@questionCategory.Name</td>
+        
+          <td><input type="checkbox" name="selectedItems" value="@questionCategory.ID" id="@qcid"></td>
+    </tr>
+      
+
+
+    }
+    </table>
+      @Html.ValidationMessage("selectedItems")
+  </div>
+ 
+ <script type="text/javascript">
+  $(function(){
+
+      $("#tabletree").treetable({ expandable: true });
+
+ @{
+    foreach (var questionCategory in Model.QuestionCategories)
+    {
+      var qcid="#qc"+questionCategory.ID;
+        <text>
+            $("@qcid").prop('checked', true);
+        </text>
+    }
+}
+
+
+  });
+</script>
+
+
+
+    <div class="display-label">@Html.LabelFor(m => m.Description)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.Description)
+        @Html.ValidationMessageFor(model => model.Description)
+    </div>
+
+      <div class="display-label">@Html.LabelFor(m => m.Details)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.Details)
+        @Html.ValidationMessageFor(model => model.Details)
+    </div>

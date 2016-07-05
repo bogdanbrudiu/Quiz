@@ -1,0 +1,27 @@
+﻿@model QuizWeb.Models.Test
+
+@{
+    ViewBag.Title = Resource.Edit;
+}
+
+<h2>@Resource.Edit</h2>
+
+
+@using (Html.BeginForm()) {
+
+  @Html.ValidationSummary(false)
+
+    <fieldset>
+        <legend>@Resource.Test </legend>
+        @Html.HiddenFor(m => m.ID)
+        @Html.Partial("_Fields")
+
+        <p>
+            <input type="submit" value="@Resource.Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink(Resource.BackToList, "Index", new { sortOrder = ViewBag.SortOrder, currentFilter = ViewBag.CurrentFilter, page = ViewBag.Page })
+</div>

@@ -1,0 +1,44 @@
+﻿@model QuizWeb.Models.User
+
+@{
+    ViewBag.Title = Resource.Delete;
+}
+
+<h2>@Resource.Delete</h2>
+
+<p class="error">@ViewBag.ErrorMessage</p>
+
+<h3>@Resource.DeleteMessage</h3>
+<fieldset>
+    <legend>@Resource.User</legend>
+
+    
+    <div class="display-label">@Html.LabelFor(m => m.Login)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.Login)
+    </div>
+      <div class="display-label">@Html.LabelFor(m => m.FirstName)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.FirstName)
+    </div>
+      <div class="display-label">@Html.LabelFor(m => m.LastName)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.LastName)
+    </div>
+       <div class="display-label">@Html.LabelFor(m => m.IsAdmin)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.IsAdmin)
+    </div>
+   
+
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+           @Html.HiddenFor(m => m.ID)
+   
+   
+
+        <input type="submit" value="@Resource.Delete" /> |
+        @Html.ActionLink(Resource.BackToList, "Index", new { sortOrder = ViewBag.SortOrder, currentFilter = ViewBag.CurrentFilter, page = ViewBag.Page })
+    </p>
+}

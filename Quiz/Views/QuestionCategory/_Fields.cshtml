@@ -1,0 +1,15 @@
+﻿  @{ Html.EnableClientValidation(); }
+  @model QuizWeb.Models.QuestionCategory
+  
+  <div class="display-label">@Html.LabelFor(m => m.Name)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+        <div class="display-label">@Html.LabelFor(m => m.ParentCategory)</div>
+    <div class="display-field">
+         @Html.DropDownList("ParentCategoryID", String.Empty)
+        @Html.ValidationMessageFor(model => model.ParentCategoryID)
+    </div>
+
+  

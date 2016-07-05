@@ -1,0 +1,28 @@
+﻿@model QuizWeb.Models.Answer
+
+@{
+    ViewBag.Title = Resource.CreateNew;
+}
+
+<h2>@Resource.CreateNew</h2>
+
+
+@using (Html.BeginForm("Create", "Answer", new { page = ViewBag.Page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }))
+{
+    @Html.ValidationSummary(false)
+    <fieldset>
+
+     <legend>@Resource.Answer</legend>
+  
+  @Html.Partial("_Fields")
+
+
+        <p>
+            <input type="submit" value="@Resource.Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink(Resource.BackToList, "Index", "Question", new { page = ViewBag.Page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }, null)
+</div>

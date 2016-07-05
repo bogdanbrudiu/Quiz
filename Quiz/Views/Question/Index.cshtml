@@ -1,0 +1,132 @@
+﻿@model PagedList.IPagedList<QuizWeb.Models.Question>
+
+@{
+    ViewBag.Title = Resource.Questions;
+}
+
+<h2>@Resource.Questions</h2>
+
+<p>
+    @Html.ActionLink(Resource.CreateNew, "Create") |  @Html.ActionLink(Resource.Export, "Export") |  @Html.ActionLink(Resource.Import, "Import")
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        @Resource.SearchByName: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string) &nbsp;
+        <input type="submit" value="@Resource.Search" /></p>
+}
+
+<table>
+<tr>
+    <th></th>
+     <th>
+        @Resource.QuestionCategories
+    </th>
+    <th>
+        @Resource.QuestionDescription
+    </th>
+     <th>
+        @Resource.QuestionDetails
+    </th>
+</tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td >
+            @Html.ActionLink(Resource.Edit, "Edit", new { id = item.ID, currentFilter = ViewBag.CurrentFilter, sortOrder = ViewBag.CurrentSort, page = Model.PageNumber }, new { @class = "buton-editeaza", @title = @Resource.Edit }) 
+            @Html.ActionLink(Resource.Delete, "Delete", new { id = item.ID, currentFilter = ViewBag.CurrentFilter, sortOrder = ViewBag.CurrentSort, page = Model.PageNumber }, new { @class = "buton-sterge", @title = @Resource.Delete }) 
+            @Html.ActionLink(Resource.Details, "Details", new { id = item.ID, currentFilter = ViewBag.CurrentFilter, sortOrder = ViewBag.CurrentSort, page = Model.PageNumber }, new { @class = "buton-detalii", @title = @Resource.Details }) 
+            @Html.ActionLink(Resource.CreateAnswer, "Create", "Answer", new { questionID = item.ID, currentFilter = ViewBag.CurrentFilter, sortOrder = ViewBag.CurrentSort, page = Model.PageNumber }, new { @class = "buton-editeaza", @title = @Resource.CreateAnswer }) 
+
+        </td>
+
+        <td>
+        @foreach (var category in item.QuestionCategories)
+        { 
+            @Html.DisplayFor(modelItem => category.Name)
+            <br />
+        } 
+        </td>
+         <td>
+            @Html.Raw(item.Description)
+        </td>
+        <td>
+            @Html.Raw(item.Details)
+        </td>
+    </tr>
+    if (item.Answers.Count > 0)
+    {
+     <tr>
+        <td></td>
+         
+         <th>
+            @Resource.IsAnswer
+        </th>
+       <th colspan="2">
+            @Resource.AnswerDescription
+        </th>
+   
+    </tr>
+        foreach (var answer in item.Answers)
+        { 
+     <tr>
+        <td >
+            @Html.ActionLink(Resource.Edit, "Edit", "Answer", new { id = answer.ID, currentFilter = ViewBag.CurrentFilter, sortOrder = ViewBag.CurrentSort, page = Model.PageNumber }, new { @class = "buton-editeaza", @title = @Resource.Edit }) 
+            @Html.ActionLink(Resource.Delete, "Delete", "Answer", new { id = answer.ID, currentFilter = ViewBag.CurrentFilter, sortOrder = ViewBag.CurrentSort, page = Model.PageNumber }, new { @class = "buton-sterge", @title = @Resource.Delete }) 
+            @Html.ActionLink(Resource.Details, "Details", "Answer", new { id = answer.ID, currentFilter = ViewBag.CurrentFilter, sortOrder = ViewBag.CurrentSort, page = Model.PageNumber }, new { @class = "buton-detalii", @title = @Resource.Details }) 
+            @if(answer.IsAnswer){
+                @Html.ActionLink(Resource.ToggleNotAnswer, "ToggleNotAnswer", "Answer", new { id = answer.ID, currentFilter = ViewBag.CurrentFilter, sortOrder = ViewBag.CurrentSort, page = Model.PageNumber }, new { @class = "buton-answer", @title = @Resource.ToggleNotAnswer }) 
+            }else
+            {
+                @Html.ActionLink(Resource.ToggleIsAnswer, "ToggleIsAnswer", "Answer", new { id = answer.ID, currentFilter = ViewBag.CurrentFilter, sortOrder = ViewBag.CurrentSort, page = Model.PageNumber }, new { @class = "buton-notanswer", @title = @Resource.ToggleIsAnswer }) 
+            }
+
+        </td>
+      
+         <td style="background-color:#F6F6E6;">
+            @Html.Raw(answer.IsAnswer)
+        </td>
+         <td colspan="2" style="background-color:#F6F6E6;">
+            @Html.Raw(answer.Description)
+        </td>
+    </tr>
+        }
+         <tr>
+    <td colspan="4"></td>
+    </tr>
+    }
+}
+
+</table>
+
+<div class="navi-bar">
+    @Resource.Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+    @Resource.of @Model.PageCount
+    &nbsp;
+    @if (Model.HasPreviousPage)
+    {
+        @Html.ActionLink(Resource.FirstPage, "Index", new { page = 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+        @Html.Raw("&nbsp;");
+        @Html.ActionLink(Resource.Prev, "Index", new { page = Model.PageNumber - 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+    }
+    else
+    {
+        @Resource.FirstPage
+        @Html.Raw("&nbsp;");
+        @Resource.Prev
+    }
+    &nbsp;
+    @if (Model.HasNextPage)
+    {
+        @Html.ActionLink(Resource.Next, "Index", new { page = Model.PageNumber + 1, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+        @Html.Raw("&nbsp;");
+        @Html.ActionLink(Resource.LastPage, "Index", new { page = Model.PageCount, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter })
+    }
+    else
+    {
+        @Resource.Next
+        @Html.Raw("&nbsp;")
+        @Resource.LastPage
+    }
+</div>

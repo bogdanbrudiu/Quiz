@@ -1,0 +1,27 @@
+﻿@model QuizWeb.Models.QuestionCategory
+
+@{
+    ViewBag.Title = Resource.CreateNew;
+}
+
+<h2>@Resource.CreateNew</h2>
+
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(false)
+    <fieldset>
+
+     <legend>@Resource.QuestionCategory</legend>
+  
+  @Html.Partial("_Fields")
+
+
+        <p>
+            <input type="submit" value="@Resource.Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink(Resource.BackToList, "Index")
+</div>

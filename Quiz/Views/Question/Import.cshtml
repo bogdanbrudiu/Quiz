@@ -1,0 +1,41 @@
+﻿
+
+@{
+    ViewBag.Title = Resource.Import;
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+        </div>
+    </section>
+}
+<h2>@Resource.Import</h2>
+
+
+
+@using (Html.BeginForm("Import", "Question", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.ValidationSummary(false)
+    <fieldset>
+
+     <legend>@Resource.Import</legend>
+  
+   <div class="display-label">@Resource.ImportFile</div>
+    <div class="display-field">
+        <input type="file" name="importfile" id="importfile" />
+    </div>
+
+
+        <p>
+            <input type="submit" value="@Resource.Import" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink(Resource.BackToList, "Index")
+</div>

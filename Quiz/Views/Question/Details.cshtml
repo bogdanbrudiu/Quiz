@@ -1,0 +1,24 @@
+@model QuizWeb.Models.Question
+
+@{
+    ViewBag.Title = Resource.Details;
+}
+
+<h2>@Resource.Details</h2>
+
+<fieldset>
+    
+     <p>@Html.LabelFor(m => m.QuestionCategories)    
+     @foreach (var category in Model.QuestionCategories)
+     { 
+            @Html.DisplayFor(modelItem => category.Name)
+            <br />
+     } 
+     </p>
+    <p>@Html.LabelFor(m => m.Description) @Html.Raw(Model.Description)</p>
+       <p>@Html.LabelFor(m => m.Details) @Html.DisplayFor(m => m.Details)</p>
+</fieldset>
+<p>
+      @Html.ActionLink(Resource.Edit, "Edit", new { id = Model.ID, sortOrder = ViewBag.SortOrder, currentFilter = ViewBag.CurrentFilter, page = ViewBag.Page }) |
+    @Html.ActionLink(Resource.BackToList, "Index", new { sortOrder = ViewBag.SortOrder, currentFilter = ViewBag.CurrentFilter, page = ViewBag.Page })
+</p>

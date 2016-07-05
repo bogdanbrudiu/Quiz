@@ -1,0 +1,23 @@
+@model QuizWeb.Models.Quiz
+
+@{
+    ViewBag.Title = Resource.Details;
+}
+
+<h2>@Resource.Details</h2>
+
+<fieldset>
+    <p>@Html.LabelFor(m => m.Name) @Html.DisplayFor(m => m.Name)</p>
+      <p>@Html.LabelFor(m => m.Code) @Html.DisplayFor(m => m.Code)</p>
+    
+
+      <p>@Html.LabelFor(m => m.AlwaysGenerate) @Html.DisplayFor(m => m.AlwaysGenerate)</p>
+        <p>@Html.LabelFor(m => m.RandomiseQuestionsOrder) @Html.DisplayFor(m => m.RandomiseQuestionsOrder)</p>
+          <p>@Html.LabelFor(m => m.RandomiseAnswersOrder) @Html.DisplayFor(m => m.RandomiseAnswersOrder)</p>
+            <p>@Html.LabelFor(m => m.AllowNavigate) @Html.DisplayFor(m => m.AllowNavigate)</p>
+              <p>@Html.LabelFor(m => m.QuestionsPerPage) @Html.DisplayFor(m => m.QuestionsPerPage)</p>
+</fieldset>
+<p>
+      @Html.ActionLink(Resource.Edit, "Edit", new { id = Model.ID, sortOrder = ViewBag.SortOrder, currentFilter = ViewBag.CurrentFilter, page = ViewBag.Page }) |
+    @Html.ActionLink(Resource.BackToList, "Index", new { sortOrder = ViewBag.SortOrder, currentFilter = ViewBag.CurrentFilter, page = ViewBag.Page })
+</p>

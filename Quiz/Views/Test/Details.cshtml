@@ -1,0 +1,103 @@
+@model QuizWeb.Models.Test
+
+@{
+    ViewBag.Title = Resource.Details;
+}
+
+<h2>@Resource.Details</h2>
+
+<fieldset>
+     <div class="display-label">@Html.LabelFor(m => m.FirstName)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.FirstName)
+    </div>
+
+     <div class="display-label">@Html.LabelFor(m => m.LastName)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.LastName)
+    </div>
+
+      <div class="display-label">@Html.LabelFor(m => m.AnStudiu)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.AnStudiu)
+    </div>
+
+      <div class="display-label">@Html.LabelFor(m => m.Grupa)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.Grupa)
+    </div>
+
+      <div class="display-label">@Html.LabelFor(m => m.NrMatricol)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.NrMatricol)
+    </div>
+      <div class="display-label">@Html.LabelFor(m => m.Quiz.Name)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.Quiz.Name)
+    </div>
+    <br />
+      <div class="display-label"><b>@Resource.Results</b></div>
+    <div class="display-field">
+        <b />@Model.TestDetails.Where(td=>td.IsAnswer==true).Count()/@Model.TestDetails.Count()     @Math.Round((double)(Model.TestDetails.Where(td=>td.IsAnswer==true).Count()*100/Model.TestDetails.Count()),2)%</b>
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink(Resource.Edit, "Edit", new { id = Model.ID, sortOrder = ViewBag.SortOrder, currentFilter = ViewBag.CurrentFilter, page = ViewBag.Page }) |
+    @Html.ActionLink(Resource.BackToList, "Index", new { sortOrder = ViewBag.SortOrder, currentFilter = ViewBag.CurrentFilter, page = ViewBag.Page })
+</p>
+
+
+
+<table>
+<tr>
+    
+    <th>
+        @Resource.QuestionDescription
+    </th>
+    
+     <th>
+        @Resource.AnswerDescription
+    </th>
+     <th>
+        @Resource.TestAnswerDescription
+    </th>
+      <th>
+        @Resource.IsAnswer
+    </th>
+      <th>
+        @Resource.Answered
+    </th>
+      <th>
+        @Resource.AnsweredOn
+    </th>
+</tr>
+
+@foreach (var item in Model.TestDetails)
+{
+    <tr>
+
+
+     
+         <td>
+            @Html.Raw(item.QuestionDescription)
+        </td>
+        <td>
+                @Html.Raw(string.Join("<br/>", ((QuizWeb.Models.Question)ViewBag.Question[item.ID]).Answers.Where(a => a.IsAnswer).Select(a => a.Description).ToList()))
+        </td>
+        <td>
+            @Html.Raw(string.Join("<br/>", (item.Responses.ToList())))
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsAnswer)
+        </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.Answered)
+        </td>
+          <td>
+            @Html.DisplayFor(modelItem => item.AnsweredOn)
+        </td>
+    </tr>
+}
+
+</table>

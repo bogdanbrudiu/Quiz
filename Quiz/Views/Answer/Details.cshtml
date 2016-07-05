@@ -1,0 +1,17 @@
+@model QuizWeb.Models.Answer
+
+@{
+    ViewBag.Title = Resource.Details;
+}
+
+<h2>@Resource.Details</h2>
+
+<fieldset>
+    
+    <p>@Html.LabelFor(m => m.Description) @Html.DisplayFor(m => m.Description)</p>
+    <p>@Html.LabelFor(m => m.IsAnswer) @Html.DisplayFor(m => m.IsAnswer)</p>
+</fieldset>
+<p>
+      @Html.ActionLink(Resource.Edit, "Edit", new { id = Model.ID, sortOrder = ViewBag.SortOrder, currentFilter = ViewBag.CurrentFilter, page = ViewBag.Page }) |
+      @Html.ActionLink(Resource.BackToList, "Index", "Question", new { page = ViewBag.Page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter }, null)
+</p>

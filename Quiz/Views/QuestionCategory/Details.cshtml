@@ -1,0 +1,18 @@
+@model QuizWeb.Models.QuestionCategory
+
+@{
+    ViewBag.Title = Resource.Details;
+}
+
+<h2>@Resource.Details</h2>
+
+<fieldset>
+    <p>@Html.LabelFor(m => m.Name) @Html.DisplayFor(m => m.Name)</p>
+     <p>@Html.LabelFor(m => m.ParentCategory.Name) @Html.DisplayFor(m => m.ParentCategory.Name)</p>
+     <p>@Html.LabelFor(m => m.HierarchyPath) @Html.DisplayFor(m => m.HierarchyPath)</p>
+    <p>@Html.LabelFor(m => m.FullHierarchyPath) @Html.DisplayFor(m => m.FullHierarchyPath)</p>
+</fieldset>
+<p>
+      @Html.ActionLink(Resource.Edit, "Edit", new { id = Model.ID, sortOrder = ViewBag.SortOrder, currentFilter = ViewBag.CurrentFilter, page = ViewBag.Page }) |
+    @Html.ActionLink(Resource.BackToList, "Index", new { sortOrder = ViewBag.SortOrder, currentFilter = ViewBag.CurrentFilter, page = ViewBag.Page })
+</p>

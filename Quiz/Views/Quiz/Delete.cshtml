@@ -1,0 +1,53 @@
+﻿@model QuizWeb.Models.Quiz
+
+@{
+    ViewBag.Title = Resource.Delete;
+}
+
+<h2>@Resource.Delete</h2>
+<p class="error">@ViewBag.ErrorMessage</p>
+<h3>@Resource.DeleteMessage</h3>
+<fieldset>
+    <legend>@Resource.Quiz</legend>
+
+     <div class="display-label">@Html.LabelFor(m => m.Name)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.Name)
+    </div>
+       <div class="display-label">@Html.LabelFor(m => m.Code)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.Code)
+    </div>
+
+      <div class="display-label">@Html.LabelFor(m => m.AlwaysGenerate)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.AlwaysGenerate)
+    </div>
+      <div class="display-label">@Html.LabelFor(m => m.RandomiseQuestionsOrder)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.RandomiseQuestionsOrder)
+    </div>
+      <div class="display-label">@Html.LabelFor(m => m.RandomiseAnswersOrder)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.RandomiseAnswersOrder)
+    </div>
+      <div class="display-label">@Html.LabelFor(m => m.AllowNavigate)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.AllowNavigate)
+    </div>
+        <div class="display-label">@Html.LabelFor(m => m.QuestionsPerPage)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.QuestionsPerPage)
+    </div>
+
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+           @Html.HiddenFor(m => m.ID)
+   
+   
+
+        <input type="submit" value="@Resource.Delete" /> |
+        @Html.ActionLink(Resource.BackToList, "Index", new { sortOrder = ViewBag.SortOrder, currentFilter = ViewBag.CurrentFilter, page = ViewBag.Page })
+    </p>
+}

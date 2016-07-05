@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=UTF-8"/>
+        <title>@ViewBag.Title - @Resource.QuizTitle</title>
+        <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+        <meta name="viewport" content="width=device-width" />
+
+  
+
+
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+       @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/jqueryui")
+        @Scripts.Render("~/bundles/jqueryval")
+        <script src="~/Scripts/jquery.cookie.js" type="text/javascript"></script>
+
+
+
+
+  <link href="~/Content/dynatree/skin/ui.dynatree.css" rel="stylesheet" type="text/css">
+  <script src="~/Scripts/jquery.dynatree.js" type="text/javascript"></script>
+
+  <link href="~/Content/jquery.treetable.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/jquery.treetable.theme.default.css" rel="stylesheet" type="text/css">
+  <script src="~/Scripts/jquery.treetable.js" type="text/javascript"></script>
+  <script src="~/Scripts/jquery.watermark.js" type="text/javascript"></script>
+  <script src="~/Scripts/jquery.validate.unobtrusive.js" type="text/javascript"></script>
+
+    </head>
+    <body>
+        <header>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p class="site-title"><!--@Html.ActionLink(Resource.QuizTitle, "Index", "Home")--><a href="/Home"><img src="~/Images/logo.png" alt="logo" border="0" /></a></p>
+                </div>
+                <div class="float-right"><div style="float:right; margin-bottom:10px;">
+                @*@Html.ActionLink(Resource.EN, "ChangeCulture", "ChangeCulture", new { lang = "en-US", returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery }, null)*@
+                @*@Html.ActionLink(Resource.RO, "ChangeCulture", "ChangeCulture", new { lang = "ro-RO", returnUrl = ViewContext.HttpContext.Request.Url.PathAndQuery }, null)*@
+		</div><div style="clear:both;"></div>
+ 		    <section id="login">
+               <div class="float-left">
+              @{QuizWeb.Models.Test test = ViewBag.Test;}
+                <p><h2>@Html.LabelFor(m => test.ID) @Html.DisplayFor(m => test.ID)</h2></p>
+                </div>
+              <div class="float-left">
+                <p>@Html.LabelFor(m => test.FirstName) @Html.DisplayFor(m => test.FirstName)</p>
+                <p>@Html.LabelFor(m => test.LastName) @Html.DisplayFor(m => test.LastName)</p>
+                </div>
+                  <div class="float-left">
+                <p>@Html.LabelFor(m => test.Grupa) @Html.DisplayFor(m => test.Grupa)</p>
+                <p>@Html.LabelFor(m => test.AnStudiu) @Html.DisplayFor(m => test.AnStudiu)</p>
+                <p>@Html.LabelFor(m => test.NrMatricol) @Html.DisplayFor(m => test.NrMatricol)</p>
+                  </div>
+                  <div class="float-left">
+                <p>@Html.LabelFor(m => test.Quiz.Name) @Html.DisplayFor(m => test.Quiz.Name)</p>
+                <p>@Html.LabelFor(m => test.Quiz.Code) @Html.DisplayFor(m => test.Quiz.Code)</p>
+                 </div>
+                    </section>
+                </div>
+            </div>
+        </header>
+        <div id="body">
+            @RenderSection("featured", required: false)
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+        <footer>
+            <div class="content-wrapper">
+                <div class="float-left">
+                    <p>&copy; @DateTime.Now.Year - <a href="http://www.xceed.ro/" target="blank">Xceed</a></p>
+                </div>
+            </div>
+        </footer>
+
+        @RenderSection("scripts", required: false)
+    </body>
+</html>

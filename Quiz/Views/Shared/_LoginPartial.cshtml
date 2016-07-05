@@ -1,0 +1,8 @@
+﻿@if(!Request.IsAuthenticated) {
+    @Html.ActionLink(Resource.Login, "LogOn", "Account")
+}
+else {
+    @: @Resource.Welcome <b>@User.Identity.ToString()</b>!
+    @: | 
+      @Html.ActionLink(Resource.Logout, "LogOff", "Account")
+}

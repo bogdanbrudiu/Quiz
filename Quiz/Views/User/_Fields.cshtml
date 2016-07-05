@@ -1,0 +1,34 @@
+﻿  @{ Html.EnableClientValidation(); }
+  @model QuizWeb.Models.User
+  
+
+
+    <div class="display-label">@Html.LabelFor(m => m.Login)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.Login)
+        @Html.ValidationMessageFor(model => model.Login)
+    </div>
+
+     <div class="display-label">@Html.LabelFor(m => m.Password)</div>
+    <div class="display-field">
+        @Html.PasswordFor(m => m.Password)
+        @Html.ValidationMessageFor(model => model.Password)
+    </div>
+
+      <div class="display-label">@Html.LabelFor(m => m.FirstName)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.FirstName)
+        @Html.ValidationMessageFor(model => model.FirstName)
+    </div>
+
+      <div class="display-label">@Html.LabelFor(m => m.LastName)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.LastName)
+        @Html.ValidationMessageFor(model => model.LastName)
+    </div>
+
+       <div class="display-label">@Html.LabelFor(m => m.IsAdmin)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.IsAdmin)
+        @Html.ValidationMessageFor(model => model.IsAdmin)
+    </div>

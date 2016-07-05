@@ -1,0 +1,126 @@
+﻿  @{ Html.EnableClientValidation(); }
+  @model QuizWeb.Models.Quiz
+  
+  <div class="display-label">@Html.LabelFor(m => m.Name)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+      <div class="display-label">@Html.LabelFor(m => m.Code)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.Code)
+        @Html.ValidationMessageFor(model => model.Code)
+    </div>
+    
+     <div class="display-label">@Html.LabelFor(m => m.AlwaysGenerate)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.AlwaysGenerate)
+        @Html.ValidationMessageFor(model => model.AlwaysGenerate)
+    </div>
+
+     <div class="display-label">@Html.LabelFor(m => m.RandomiseQuestionsOrder)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.RandomiseQuestionsOrder)
+        @Html.ValidationMessageFor(model => model.RandomiseQuestionsOrder)
+    </div>
+
+     <div class="display-label">@Html.LabelFor(m => m.RandomiseAnswersOrder)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.RandomiseAnswersOrder)
+        @Html.ValidationMessageFor(model => model.RandomiseAnswersOrder)
+    </div>
+ 
+    <div class="display-label">@Html.LabelFor(m => m.AllowNavigate)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.AllowNavigate)
+        @Html.ValidationMessageFor(model => model.AllowNavigate)
+    </div>
+
+       <div class="display-label">@Html.LabelFor(m => m.QuestionsPerPage)</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.QuestionsPerPage)
+        @Html.ValidationMessageFor(model => model.QuestionsPerPage)
+    </div>
+
+  <div id="tree">
+    <table id="tabletree">
+    @foreach (QuizWeb.Models.QuestionCategory questionCategory in ViewBag.QuestionCategories)
+    {
+        var parent=questionCategory.ParentCategoryID.HasValue ? "data-tt-parent-id=\""+questionCategory.ParentCategoryID+"\"" : "";
+        var qcid="qc"+questionCategory.ID;
+        var qcparentid = "qc" + questionCategory.ParentCategoryID;
+    <tr class="folder" data-tt-id="@questionCategory.ID" @Html.Raw(parent)>
+        <td>@questionCategory.Name</td>
+        
+        <td><input  data-val="true" data-val-range="@Resource.ValueSmallerThen @questionCategory.QuestionCount" data-val-range-max="@questionCategory.QuestionCount" data-val-number="The field Price must be a number."  class="watermarknr" type="text" name="@qcid" id="@qcid">
+           <span class="field-validation-valid" data-valmsg-for="@qcid" data-valmsg-replace="true"></span>
+           <script  type="text/javascript">
+               $("#@qcid").change(function () {
+                   if ((isNaN(parseInt($("#@qcparentid").val(), 10)) || parseInt($("#@qcparentid").val(), 10) < parseInt($("#@qcid").val(), 10)) && parseInt($("#@qcid").val(), 10) <= parseInt("@questionCategory.QuestionCount", 10))
+                       $("#@qcparentid").val($("#@qcid").val());
+               });
+           </script>
+        </td>
+    </tr>
+        foreach (QuizWeb.Models.Question childQuestion in questionCategory.Questions)
+        {
+            var trqid="trq"+childQuestion.ID;
+            var qid = "q" + childQuestion.ID;
+    <tr class="file" data-tt-id="@trqid" data-tt-parent-id="@questionCategory.ID" >
+        <td>
+        @Html.Raw(childQuestion.Description)
+        
+        </td>
+        <td><input type="checkbox" name="selectedqItems" value="@childQuestion.ID" id="@qid"></td>
+    </tr>  
+        }
+
+
+    }
+    </table>
+       
+ 
+  </div>
+ 
+  <script type="text/javascript">
+  $(document).ready(function() {
+    window.setTimeout(function () {
+        //Fixing jquery Unobtrusive validation range integer bug
+        var allRules = $.data(document.forms[0], "validator").settings.rules;
+        for (var ruleName in allRules) {
+            var rule = allRules[ruleName];
+
+            if (rule.max != undefined && rule.number)
+               
+                    rule.max = Number(rule.max);
+
+        }
+    }, 100);
+});
+  $(function(){
+   $(".watermarknr").watermark("@Resource.NumberOfQuestions");
+   $("#tabletree").treetable({ expandable: true });
+
+   
+ @{
+    foreach (QuizWeb.Models.QuizDetail quizDetail in Model.QuizDetails)
+    {
+        if(quizDetail.QuestionID.HasValue){
+            var qid="#q"+quizDetail.QuestionID;
+            <text>
+                $("@qid").prop('checked', true);
+            </text>
+        }
+         if(quizDetail.QuestionCategoryID.HasValue){
+            var qcid="#qc"+quizDetail.QuestionCategoryID;
+            <text>
+                $("@qcid").val(@quizDetail.Number)
+            </text>
+        }
+    }
+}
+
+  });
+</script>
+  

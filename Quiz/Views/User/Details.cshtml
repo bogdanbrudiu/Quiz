@@ -1,0 +1,32 @@
+@model QuizWeb.Models.User
+
+@{
+    ViewBag.Title = Resource.Details;
+}
+
+<h2>@Resource.Details</h2>
+
+<fieldset>
+   <div class="display-label">@Html.LabelFor(m => m.Login)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.Login)
+    </div>
+
+     <div class="display-label">@Html.LabelFor(m => m.FirstName)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.FirstName)
+    </div>
+
+     <div class="display-label">@Html.LabelFor(m => m.LastName)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.LastName)
+    </div>
+      <div class="display-label">@Html.LabelFor(m => m.IsAdmin)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.IsAdmin)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink(Resource.Edit, "Edit", new { id=Model.ID, sortOrder=ViewBag.SortOrder, currentFilter=ViewBag.CurrentFilter, page=ViewBag.Page }) |
+    @Html.ActionLink(Resource.BackToList, "Index", new { sortOrder = ViewBag.SortOrder, currentFilter = ViewBag.CurrentFilter, page = ViewBag.Page })
+</p>

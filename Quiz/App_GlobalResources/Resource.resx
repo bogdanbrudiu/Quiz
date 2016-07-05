@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BackToList" xml:space="preserve">
+    <value>Inapoi la Lista</value>
+  </data>
+  <data name="Create" xml:space="preserve">
+    <value>Adauga</value>
+  </data>
+  <data name="CreateNew" xml:space="preserve">
+    <value>Adauga</value>
+  </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Stergere</value>
+  </data>
+  <data name="DeleteMessage" xml:space="preserve">
+    <value>Sunteti sigur ca doriti sa stergeti?</value>
+  </data>
+  <data name="Details" xml:space="preserve">
+    <value>Detalii</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Modifica</value>
+  </data>
+  <data name="EN" xml:space="preserve">
+    <value>Engleza</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>Prenume</value>
+  </data>
+  <data name="FirstPage" xml:space="preserve">
+    <value>Prima pagina</value>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>Acasa</value>
+  </data>
+  <data name="IsAdmin" xml:space="preserve">
+    <value>Administrator</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>Nume</value>
+  </data>
+  <data name="LastPage" xml:space="preserve">
+    <value>Ultima pagina</value>
+  </data>
+  <data name="Login" xml:space="preserve">
+    <value>Logare</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Deconectare</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Urmatorul</value>
+  </data>
+  <data name="of" xml:space="preserve">
+    <value>din</value>
+  </data>
+  <data name="Page" xml:space="preserve">
+    <value>Pagina</value>
+  </data>
+  <data name="ParentQuestionCategory" xml:space="preserve">
+    <value>Categorie de intrebari parinte</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Parola</value>
+  </data>
+  <data name="Prev" xml:space="preserve">
+    <value>Anterior</value>
+  </data>
+  <data name="Question" xml:space="preserve">
+    <value>Intrebare</value>
+  </data>
+  <data name="QuestionCategories" xml:space="preserve">
+    <value>Categorii de intrebari</value>
+  </data>
+  <data name="QuestionCategory" xml:space="preserve">
+    <value>Categorie de intrebari</value>
+  </data>
+  <data name="QuestionCategoryHierarchyPath" xml:space="preserve">
+    <value>Ierarhia categoriilor de intrebari</value>
+  </data>
+  <data name="QuestionCategoryName" xml:space="preserve">
+    <value>Denumire categorie de intrebari</value>
+  </data>
+  <data name="QuestionDescription" xml:space="preserve">
+    <value>Intrebare</value>
+  </data>
+  <data name="Questions" xml:space="preserve">
+    <value>Intrebari</value>
+  </data>
+  <data name="RO" xml:space="preserve">
+    <value>Romana</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Salveaza</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Cauta</value>
+  </data>
+  <data name="SearchByName" xml:space="preserve">
+    <value>Cautare dupa nume</value>
+  </data>
+  <data name="UnableToSave" xml:space="preserve">
+    <value>Nu se poate salva.</value>
+  </data>
+  <data name="User" xml:space="preserve">
+    <value>Utilizator</value>
+  </data>
+  <data name="UserLogin" xml:space="preserve">
+    <value>Logare</value>
+  </data>
+  <data name="Users" xml:space="preserve">
+    <value>Utilizatori</value>
+  </data>
+  <data name="Welcome" xml:space="preserve">
+    <value>Bine ati venit!</value>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="QuestionAnswers" xml:space="preserve">
+    <value>Raspunsuri la intrebare</value>
+  </data>
+  <data name="Answer" xml:space="preserve">
+    <value>Raspuns</value>
+  </data>
+  <data name="Answers" xml:space="preserve">
+    <value>Raspunsuri</value>
+  </data>
+  <data name="AnswerDescription" xml:space="preserve">
+    <value>Varianta raspuns corecta</value>
+  </data>
+  <data name="MandatoryAnswerDescription" xml:space="preserve">
+    <value>Este obligatorie definirea variantei de raspuns</value>
+  </data>
+  <data name="MandatoryQuestionDescription" xml:space="preserve">
+    <value>Este obligatorie definirea intrebarii</value>
+  </data>
+  <data name="IsAnswer" xml:space="preserve">
+    <value>Este raspuns corect</value>
+  </data>
+  <data name="ToggleIsAnswer" xml:space="preserve">
+    <value>Comuta-e raspuns corect</value>
+  </data>
+  <data name="ToggleNotAnswer" xml:space="preserve">
+    <value>Comuta-nu e raspuns corect</value>
+  </data>
+  <data name="Import" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="ImportFile" xml:space="preserve">
+    <value>Import fisier</value>
+  </data>
+  <data name="Quiz" xml:space="preserve">
+    <value>Chestionar</value>
+  </data>
+  <data name="Quizzes" xml:space="preserve">
+    <value>Chestionare</value>
+  </data>
+  <data name="MandatoryQuizName" xml:space="preserve">
+    <value>Este obligatoriu sa definiti numele chestionarului</value>
+  </data>
+  <data name="QuizName" xml:space="preserve">
+    <value>Denumire chestionar</value>
+  </data>
+  <data name="AlwaysGenerate" xml:space="preserve">
+    <value>Genereaza intotdeauna aceleasi intrebari</value>
+  </data>
+  <data name="RandomiseAnswersOrder" xml:space="preserve">
+    <value>Amesteca ordinea raspunsurilor</value>
+  </data>
+  <data name="RandomiseQuestionsOrder" xml:space="preserve">
+    <value>Amesteca ordinea intrebarilor</value>
+  </data>
+  <data name="NumberOfQuestions" xml:space="preserve">
+    <value>Numar de intrebari</value>
+  </data>
+  <data name="ValueSmallerThen" xml:space="preserve">
+    <value>Valoare mai mica decat</value>
+  </data>
+  <data name="InvalidExtension" xml:space="preserve">
+    <value>Extensia fisierului nu este permisa! (se accepta doar .csv sau .xls)</value>
+  </data>
+  <data name="QuestionDetails" xml:space="preserve">
+    <value>Rezolvare</value>
+  </data>
+  <data name="Test" xml:space="preserve">
+    <value>Rezultat examen</value>
+  </data>
+  <data name="TestFirstName" xml:space="preserve">
+    <value>Prenume</value>
+  </data>
+  <data name="TestLastName" xml:space="preserve">
+    <value>Nume</value>
+  </data>
+  <data name="Tests" xml:space="preserve">
+    <value>Rezultate examene</value>
+  </data>
+  <data name="MandatoryTestFirstName" xml:space="preserve">
+    <value>Este obligatoriu sa introduceti numele</value>
+  </data>
+  <data name="MandatoryTestLastName" xml:space="preserve">
+    <value>Este obligatoriu sa introduceti prenumele</value>
+  </data>
+  <data name="Answered" xml:space="preserve">
+    <value>Intrebare la care s-a raspuns</value>
+  </data>
+  <data name="AnsweredOn" xml:space="preserve">
+    <value>Raspuns la momentul</value>
+  </data>
+  <data name="TakeQuiz" xml:space="preserve">
+    <value>Start EXAMEN</value>
+  </data>
+  <data name="QuizCode" xml:space="preserve">
+    <value>Cod chestionar</value>
+  </data>
+  <data name="SearchByCode" xml:space="preserve">
+    <value>Cauta dupa cod</value>
+  </data>
+  <data name="SelectQuiz" xml:space="preserve">
+    <value>Alege chestionar</value>
+  </data>
+  <data name="SelectQuizByUser" xml:space="preserve">
+    <value>Alege chestionar - dupa utilizator</value>
+  </data>
+  <data name="SelectQuizByCode" xml:space="preserve">
+    <value>Alege chestionar - dupa cod</value>
+  </data>
+  <data name="AllowNavigate" xml:space="preserve">
+    <value>Permite navigarea in chestionar</value>
+  </data>
+  <data name="AnswerQuestion" xml:space="preserve">
+    <value>Raspunde la intrebare</value>
+  </data>
+  <data name="BackAnswerQuestion" xml:space="preserve">
+    <value>Intrebarea anterioara</value>
+  </data>
+  <data name="MandatoryQuestionsPerPage" xml:space="preserve">
+    <value>Este obligatoriu sa stabiliti un numar de intrebari vizibile pe pagina</value>
+  </data>
+  <data name="NextAnswerQuestion" xml:space="preserve">
+    <value>Intrebarea urmatoare</value>
+  </data>
+  <data name="QuestionsPerPage" xml:space="preserve">
+    <value>Numarul intrebarilor afisate pe pagina</value>
+  </data>
+  <data name="TestDone" xml:space="preserve">
+    <value>Stop EXAMEN</value>
+  </data>
+  <data name="ContinueTest" xml:space="preserve">
+    <value>Continuare examen</value>
+  </data>
+  <data name="MandatoryTestAnStudiu" xml:space="preserve">
+    <value>Anul de studiu obligatoriu</value>
+  </data>
+  <data name="MandatoryTestGrupa" xml:space="preserve">
+    <value>Este obligatoriu sa introduceti grupa</value>
+  </data>
+  <data name="MandatoryTestNrMatricol" xml:space="preserve">
+    <value>Este obligatoriu sa introduceti numarul matricol</value>
+  </data>
+  <data name="TestAnStudiu" xml:space="preserve">
+    <value>An studiu</value>
+  </data>
+  <data name="TestGrupa" xml:space="preserve">
+    <value>Grupa</value>
+  </data>
+  <data name="TestNrMatricol" xml:space="preserve">
+    <value>Numarul matricol</value>
+  </data>
+  <data name="BadUserNameOrPassword" xml:space="preserve">
+    <value>Nume utilizator sau parola sunt gresite!</value>
+  </data>
+  <data name="TestIDNotFound" xml:space="preserve">
+    <value>ID examen inexistent</value>
+  </data>
+  <data name="TestResults" xml:space="preserve">
+    <value>Rezultate examen</value>
+  </data>
+  <data name="MandatoryQuestionCategory" xml:space="preserve">
+    <value>Este obligatorie stabilirea categorie de intrebari</value>
+  </data>
+  <data name="Usermessage" xml:space="preserve">
+    <value>Acces UTILIZATOR:</value>
+  </data>
+  <data name="Studentmessage" xml:space="preserve">
+    <value>Acces STUDENT:</value>
+  </data>
+  <data name="RememberMe" xml:space="preserve">
+    <value>Ţine-mă minte</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Nume utilizator</value>
+  </data>
+  <data name="CreateAnswer" xml:space="preserve">
+    <value>Adauga varianta de raspuns</value>
+  </data>
+  <data name="QuizTitle" xml:space="preserve">
+    <value>Chestionar</value>
+  </data>
+  <data name="ConfirmAnswer" xml:space="preserve">
+    <value>Confirma raspunsul</value>
+  </data>
+  <data name="TestAnswerDescription" xml:space="preserve">
+    <value>Varianta raspuns data</value>
+  </data>
+  <data name="Results" xml:space="preserve">
+    <value>Rezultat</value>
+  </data>
+</root>

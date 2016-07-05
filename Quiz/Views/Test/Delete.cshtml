@@ -1,0 +1,54 @@
+﻿@model QuizWeb.Models.Test
+
+@{
+    ViewBag.Title = Resource.Delete;
+}
+
+<h2>@Resource.Delete</h2>
+
+<p class="error">@ViewBag.ErrorMessage</p>
+
+<h3>@Resource.DeleteMessage</h3>
+<fieldset>
+    <legend>@Resource.Test</legend>
+
+    
+
+      <div class="display-label">@Html.LabelFor(m => m.FirstName)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.FirstName)
+    </div>
+      <div class="display-label">@Html.LabelFor(m => m.LastName)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.LastName)
+    </div>
+     <div class="display-label">@Html.LabelFor(m => m.AnStudiu)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.AnStudiu)
+    </div>
+     <div class="display-label">@Html.LabelFor(m => m.Grupa)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.Grupa)
+    </div>
+     <div class="display-label">@Html.LabelFor(m => m.NrMatricol)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.NrMatricol)
+    </div>
+
+       <div class="display-label">@Html.LabelFor(m => m.Quiz.Name)</div>
+    <div class="display-field">
+        @Html.DisplayFor(m => m.Quiz.Name)
+    </div>
+   
+
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+           @Html.HiddenFor(m => m.ID)
+   
+   
+
+        <input type="submit" value="@Resource.Delete" /> |
+        @Html.ActionLink(Resource.BackToList, "Index", new { sortOrder = ViewBag.SortOrder, currentFilter = ViewBag.CurrentFilter, page = ViewBag.Page })
+    </p>
+}

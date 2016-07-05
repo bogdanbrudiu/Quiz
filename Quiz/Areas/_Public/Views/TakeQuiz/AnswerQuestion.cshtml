@@ -1,0 +1,71 @@
+﻿    @model QuizWeb.Models.TestDetail
+
+@{
+    ViewBag.Title = Resource.AnswerQuestion;
+    Layout = "~/Views/Shared/_TestLayout.cshtml";
+}
+
+<h2>@Resource.AnswerQuestion</h2>
+
+
+
+@using (Html.BeginForm())
+{
+
+  @Html.ValidationSummary(false)
+   
+    
+    <fieldset>
+
+     <legend>@Resource.Test</legend>
+  @{ Html.EnableClientValidation(); }
+  
+  <input type="hidden" name="ID" value="@Model.ID" />
+
+     @Html.HiddenFor(m => m.QuestionID)
+      @Html.HiddenFor(m => m.TestID)
+  
+  <p>@(ViewBag.Position+1) / @Model.Test.TestDetails.Count  @Resource.QuestionDescription
+  <br />
+   <b>@Html.Raw(Model.QuestionDescription)</b></p>
+  @{
+
+    List<QuizWeb.Models.Answer> answersList = ((QuizWeb.Models.Question)ViewBag.Question).Answers.ToList<QuizWeb.Models.Answer>();
+     if (Model.Test.Quiz.RandomiseAnswersOrder)
+     {
+         QuizWeb.Misc.Misc.Shuffle(answersList);
+     }
+   
+}
+  @foreach (var answer in answersList)
+  {
+
+      string checkedItem = (Model.ResponsesArray!=null && Model.ResponsesArray.Contains("\"" + @answer.Description + "\"")) ? "checked" : "";
+          
+    <input name="ResponseID[]" value="@answer.ID" type="checkbox" @checkedItem /> 
+      @Html.Raw(answer.Description)    
+    <br/>
+  }
+
+        <p>
+            <input type="submit" value="@Resource.ConfirmAnswer" />
+        </p>
+    </fieldset>
+}
+
+@if (ViewBag.Done)
+{ 
+            @Html.ActionLink(Resource.TestDone, "TestDone", new { id = Model.TestID }) 
+}
+
+@if (Model.Test.Quiz.AllowNavigate)
+{
+    if (ViewBag.NotFirst)
+    {
+        @Html.ActionLink(Resource.BackAnswerQuestion, "AnswerQuestion", new { id = Model.TestID, position = ViewBag.Position - 1 }) 
+    }
+    if (ViewBag.NotLast)
+    {
+        @Html.ActionLink(Resource.NextAnswerQuestion, "AnswerQuestion", new { id = Model.TestID, position = ViewBag.Position + 1 })
+    }
+}
