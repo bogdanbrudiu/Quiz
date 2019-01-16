@@ -8,10 +8,7 @@ using Resources;
 using QuizWeb.Misc;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections;
-
-
-
-
+using System.Text.RegularExpressions;
 
 namespace QuizWeb.Models
 {
@@ -52,7 +49,7 @@ namespace QuizWeb.Models
         public IEnumerable<string> Responses { 
             get 
             {
-                return string.IsNullOrEmpty(ResponsesArray)?new List<string>():ResponsesArray.Split(',').ToArray<string>().Select(x => x.Substring(1, x.Length - 2));
+                return string.IsNullOrEmpty(ResponsesArray)?new List<string>(): Regex.Split(ResponsesArray, ",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)").ToArray<string>().Select(x => x.Substring(1, x.Length - 2));
             } 
             set 
             {

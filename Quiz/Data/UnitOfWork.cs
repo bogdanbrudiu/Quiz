@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data;
-using System.Data.Objects;
-using QuizWeb.Models;
+﻿using QuizWeb.Models;
 
 namespace QuizWeb.Data
 {

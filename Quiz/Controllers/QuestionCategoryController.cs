@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
-using System.Collections;
-using System.Web.Helpers;
-using System.IO;
-using System.Data.Objects.SqlClient;
-using System.Diagnostics;
 using QuizWeb.Data;
 using QuizWeb.Misc;
 using QuizWeb.Models;
